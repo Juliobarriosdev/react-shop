@@ -11,27 +11,31 @@ import CreateAccount from '@pages/CreateAccount';
 import Checkout from '@pages/Checkout';
 import Orders from '@pages/Orders';
 import NotFound from '@pages/NotFound';
+import AppContext from '@context/AppContext';
+import useInitialState from '@hooks/useInitialState';
 import '@styles/global.css';
 
 const App = () => {
+  const initialState = useInitialState();
   return (
-    <BrowserRouter>
-        <Layout>
-          <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/login" element= {<Login/>} />
-              <Route path="/recovery-password" element= {<PasswordRecovery/>} />
-              <Route path="/sendEmail" element= {<SendEmail/>} />
-              <Route path="/newPassword" element= {<NewPassword/>} />
-              <Route path="/myAccount" element= {<MyAccount/>} />
-              <Route path="/createAccount" element= {<CreateAccount/>} />
-              <Route path="/checkout" element= {<Checkout/>} />
-              <Route path="/orders" element= {<Orders/>} />
-              <Route path="*" element={<NotFound/>} />
-          </Routes>
-        </Layout>
-    </BrowserRouter>
-    
+    <AppContext.Provider value={initialState}>
+      <BrowserRouter>
+          <Layout>
+            <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/login" element= {<Login/>} />
+                <Route path="/recovery-password" element= {<PasswordRecovery/>} />
+                <Route path="/sendEmail" element= {<SendEmail/>} />
+                <Route path="/newPassword" element= {<NewPassword/>} />
+                <Route path="/myAccount" element= {<MyAccount/>} />
+                <Route path="/createAccount" element= {<CreateAccount/>} />
+                <Route path="/checkout" element= {<Checkout/>} />
+                <Route path="/orders" element= {<Orders/>} />
+                <Route path="*" element={<NotFound/>} />
+            </Routes>
+          </Layout>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 };
 

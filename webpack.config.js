@@ -19,6 +19,7 @@ module.exports = {
       '@logos': path.resolve(__dirname, 'src/assets/logos/'),
       '@pages': path.resolve(__dirname, 'src/pages/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
+      '@context':path.resolve(__dirname, 'src/context/')
     }
   },
   mode: 'development',
